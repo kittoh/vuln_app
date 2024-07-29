@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mock Search Interface</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .search-box {
+            margin-bottom: 20px;
+        }
+        .results {
+            padding: 10px;
+            background-color: #e9e9e9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Search Interface</h1>
+        <form method="GET" action="/search">
+            <div class="search-box">
+                <input type="text" name="x" placeholder="Search..." value="{{ query }}">
+                <button type="submit">Search</button>
+            </div>
+        </form>
+        {% if query %}
+        <div class="results">
+            <h2>Results for "{{ query }}":</h2>
+            <p>{{ query }}</p> <!-- Automatic escaping will be applied -->
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
